@@ -1,5 +1,5 @@
 ﻿
-const API = "http://localhost:8080/api";
+const API = "https://clinica-grupo-9-estrutura-de-dados-ii.onrender.com/api";
 
 const PRIORIDADE_TEXTO = {
     1: "Normal",

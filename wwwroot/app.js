@@ -1,5 +1,5 @@
 ﻿
-const API = "http://localhost:5103/api";
+const API = "http://localhost:8080/api";
 
 const PRIORIDADE_TEXTO = {
     1: "Normal",

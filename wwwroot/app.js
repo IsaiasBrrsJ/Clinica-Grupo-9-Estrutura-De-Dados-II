@@ -12,6 +12,36 @@ const PRIORIDADE_TEXTO = {
 const prioridadeTexto = v => PRIORIDADE_TEXTO[v] ?? "Normal";
 
 
+function mascaraCPF(valor) {
+    return valor
+        .replace(/\D/g, "")           
+        .slice(0, 11)                  
+        .replace(/(\d{3})(\d)/, "$1.$2")        
+        .replace(/(\d{3})(\d)/, "$1.$2")       
+        .replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+}
+
+function aplicarMascaraCPF(input) {
+    input.addEventListener("input", function () {
+        const posicaoFinal = this.selectionStart === this.value.length;
+        this.value = mascaraCPF(this.value);
+        if (posicaoFinal) {
+            this.setSelectionRange(this.value.length, this.value.length);
+        }
+    });
+
+    input.addEventListener("keydown", function (e) {
+        // permite navegação e atalhos
+        const permitidas = ["Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab", "Home", "End"];
+        if (permitidas.includes(e.key) || e.ctrlKey || e.metaKey) return;
+        // bloqueia qualquer tecla que não seja número
+        if (!/^\d$/.test(e.key)) {
+            e.preventDefault();
+        }
+    });
+}
+
+/* ---------- loading helpers ---------- */
 function setLoading(btn, isLoading) {
     if (!btn) return;
     const spinner = btn.querySelector(".btn-spinner");
@@ -233,6 +263,12 @@ async function IncluirPaciente() {
             return;
         }
 
+        const cpfDigitos = paciente.cpf.replace(/\D/g, "");
+        if (cpfDigitos.length !== 11) {
+            alert("CPF deve conter 11 dígitos.");
+            return;
+        }
+
         setLoading(btn, true);
         const response = await fetch(`${API}/clinica/incluir-paciente`, {
             method: "POST",
@@ -273,10 +309,11 @@ async function RemoverPaciente(id, btn) {
     }
 }
 
-
 document.getElementById("form").addEventListener("submit", function (event) {
     event.preventDefault();
     IncluirPaciente();
 });
+
+aplicarMascaraCPF(document.getElementById("cpf"));
 
 carregarTodos();

@@ -1,5 +1,7 @@
-﻿
-const API = "https://clinica-grupo-9-estrutura-de-dados-ii.onrender.com/api";
+﻿const API = window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1"
+    ? "http://localhost:8080/api"
+    : "https://clinica-grupo-9-estrutura-de-dados-ii.onrender.com/api";
 
 const PRIORIDADE_TEXTO = {
     1: "Normal",
@@ -231,6 +233,32 @@ async function BuscarTop3PrioritariosSelecao() {
 }
 
 
+async function RestaurarLista() {
+    try {
+        const r = await fetch(
+            `${API}/clinica/restaurar-lista`,
+            {
+                method: "POST"
+            }
+        );
+
+        if (!r.ok) {
+            throw new Error("Erro ao restaurar lista");
+        }
+
+        await carregarTodos();
+
+        document.getElementById("status").textContent =
+            "Lista restaurada com sucesso!";
+
+    } catch (err) {
+        console.error(err);
+
+        document.getElementById("status").textContent =
+            "Erro ao restaurar lista.";
+    }
+}
+
 async function IncluirPaciente() {
     try {
         const paciente = {
@@ -290,12 +318,6 @@ async function RemoverPaciente(id) {
 
         const resultado = await response.text();
 
-        if (!response.ok) {
-            alert(resultado);
-            return;
-        }
-
-        alert(resultado);
 
         await carregarTodos();
 

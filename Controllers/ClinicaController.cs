@@ -102,5 +102,13 @@ namespace ClinicaMedicaGrupo9.Controllers
             _repository.Remover(id);
             return await Task.FromResult(Ok("Paciente removido com sucesso."));
         }
+
+        [HttpPost("restaurar-lista")]
+        public IActionResult RestaurarLista()
+        {
+            _repository.Restaurar();
+
+            return NoContent();
+        }
     }
 }

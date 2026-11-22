@@ -21,9 +21,8 @@ namespace ClinicaMedicaGrupo9
 
             if (builder.Environment.IsProduction())
             {
-                var port = Environment.GetEnvironmentVariable("PORT") ?? "10000";
 
-                builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
+                builder.WebHost.UseUrls($"http://0.0.0.0:8080");
             }
 
 

@@ -19,12 +19,6 @@ namespace ClinicaMedicaGrupo9
             builder.Services.AddTransient<Ordenacao>();
             builder.Services.AddTransient<Selecao>();
 
-            if (builder.Environment.IsProduction())
-            {
-
-                builder.WebHost.UseUrls($"http://0.0.0.0:8080");
-            }
-
 
             builder.Services.AddCors(o => o.AddPolicy("front",
             p => p.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));

@@ -19,8 +19,10 @@ namespace ClinicaMedicaGrupo9
             builder.Services.AddTransient<Ordenacao>();
             builder.Services.AddTransient<Selecao>();
 
-            var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
-            builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
+            if (builder.Environment.IsProduction())
+            {
+                builder.WebHost.UseUrls($"http://0.0.0.0:10000");
+            }
 
 
             builder.Services.AddCors(o => o.AddPolicy("front",

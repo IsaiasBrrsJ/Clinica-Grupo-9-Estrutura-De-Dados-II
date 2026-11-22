@@ -1,6 +1,6 @@
 ﻿const API = window.location.hostname === "localhost" ||
     window.location.hostname === "127.0.0.1"
-    ? "http://localhost:8080/api"
+    ? "http://localhost:5103/api"
     : "http://0.0.0.0:10000/api";
 
 const PRIORIDADE_TEXTO = {

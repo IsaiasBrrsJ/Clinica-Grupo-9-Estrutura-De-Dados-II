@@ -2,6 +2,8 @@
   "profiles": {
     "TED-N2": {
       "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "http://localhost:5103/",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

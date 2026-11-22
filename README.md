@@ -42,6 +42,12 @@ ClinicaMedicaGrupo9/
 ├── Program.cs        Configuração, injeção de dependência e CORS
 ```
 
+## Aplicação online
+
+A aplicação está publicada em: **[Clínica Sapiens — Pacientes](https://clinica-grupo-9-estrutura-de-dados-ii.onrender.com/)**
+
+> Na hospedagem gratuita, o primeiro acesso pode demorar alguns segundos.
+
 ## Como executar
 
 **Requisito:** [.NET SDK 10](https://dotnet.microsoft.com/download).
@@ -96,4 +102,4 @@ Ao iniciar, a aplicação carrega 10 pacientes (idades de 8 a 79 anos, com as tr
 
 ## Tecnologias
 
-C# · .NET 10 · ASP.NET Core Web API · HTML/CSS/JavaScript · Git/GitHub
+C# · .NET 10 · ASP.NET Core Web API · HTML/CSS/JavaScript · Git/GitHub · Render

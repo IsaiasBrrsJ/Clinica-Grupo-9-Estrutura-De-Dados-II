@@ -1,20 +1,14 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Clínica Sapiens — Pacientes</title>
-
     <link rel="stylesheet" href="style.css" />
     <script src="app.js" defer></script>
 </head>
-
 <body>
-
     <div class="wrap">
-
         <header>
             <div class="brand">
                 <div class="mark">SL</div>
@@ -23,146 +17,81 @@
                     <small>Gestão de pacientes</small>
                 </div>
             </div>
-
-            <span class="badge-info" id="totalPacientes">
-                0 pacientes
-            </span>
+            <span class="badge-info" id="totalPacientes">0 pacientes</span>
         </header>
 
-        <!-- Cadastro -->
         <div class="panel">
-
             <div class="panel-header">Novo cadastro</div>
-
             <form id="form" class="form-grid">
-
                 <div class="field">
                     <label for="nome">Nome completo</label>
-                    <input id="nome"
-                           type="text"
-                           placeholder="Digite o nome completo"
-                           required />
+                    <input id="nome" type="text" placeholder="Digite o nome completo" required />
                 </div>
-
                 <div class="field">
                     <label for="cpf">CPF</label>
-                    <input id="cpf"
-                           type="text"
-                           placeholder="000.000.000-00"
-                           maxlength="14"
-                           required />
+                    <input id="cpf" type="text" placeholder="000.000.000-00" maxlength="14" required />
                 </div>
-
                 <div class="field">
                     <label for="idade">Idade</label>
-                    <input id="idade"
-                           type="number"
-                           min="0"
-                           max="120"
-                           placeholder="Idade"
-                           required />
+                    <input id="idade" type="number" min="0" max="120" placeholder="Idade" required />
                 </div>
-
                 <div class="field">
                     <label for="prioridade">Prioridade</label>
-
                     <select id="prioridade" required>
                         <option value="1">Normal</option>
                         <option value="2">Média</option>
                         <option value="3">Alta</option>
                     </select>
                 </div>
-
                 <div class="field">
-                    <button type="submit"
-                            class="btn btn-primary"
-                            style="width:100%">
-                        Cadastrar
+                    <button type="submit" class="btn btn-primary" id="btnCadastrar" style="width:100%">
+                        <span class="btn-spinner"></span><span class="btn-text">Cadastrar</span>
                     </button>
                 </div>
-
             </form>
-
-
         </div>
 
-
         <div class="panel">
-
             <div class="panel-header">Pacientes</div>
-
             <div class="toolbar">
-
-                <input id="buscaNome"
-                       class="nome"
-                       type="text"
-                       placeholder="Buscar por nome" />
-
-                <button type="button"
-                        class="btn btn-ghost"
-                        onclick="BuscarLinearPorNome()">
-                    Busca linear
+                <input id="buscaNome" class="nome" type="text" placeholder="Buscar por nome" />
+                <button type="button" class="btn btn-ghost" id="btnBuscaLinear" onclick="BuscarLinearPorNome()">
+                    <span class="btn-spinner"></span><span class="btn-text">Busca linear</span>
                 </button>
 
-
-                <input id="buscaId"
-                       class="id"
-                       type="number"
-                       placeholder="ID" />
-
-                <button type="button"
-                        class="btn btn-ghost"
-                        onclick="BuscarBinariaPorId()">
-                    Busca binária
+                <input id="buscaId" class="id" type="number" placeholder="ID" />
+                <button type="button" class="btn btn-ghost" id="btnBuscaBinaria" onclick="BuscarBinariaPorId()">
+                    <span class="btn-spinner"></span><span class="btn-text">Busca binária</span>
                 </button>
 
                 <span class="sep"></span>
 
-
-                <button type="button"
-                        class="btn btn-ghost"
-                        onclick="BuscarOrdenadoIdadeSelecao()">
-                    Seleção Idade ↓
+                <button type="button" class="btn btn-ghost" id="btnSelecaoIdade" onclick="BuscarOrdenadoIdadeSelecao()">
+                    <span class="btn-spinner"></span><span class="btn-text">Seleção Idade ↓</span>
+                </button>
+                <button type="button" class="btn btn-ghost" id="btnTop3" onclick="BuscarTop3PrioritariosSelecao()">
+                    <span class="btn-spinner"></span><span class="btn-text">Selecao Top 3</span>
                 </button>
 
-                <button type="button"
-                        class="btn btn-ghost"
-                        onclick="BuscarTop3PrioritariosSelecao()">
-                    Selecao Top 3
+                <button type="button" class="btn btn-ghost" id="btnBubbleSort" onclick="BuscarOrdenadoAZBubbleSort()">
+                    <span class="btn-spinner"></span><span class="btn-text">Ordenado BubbleSort A-Z</span>
                 </button>
 
-
-                <button type="button"
-                        class="btn btn-ghost"
-                        onclick="BuscarOrdenadoAZBubbleSort()">
-                    Ordenado BubbleSort A-Z
+                <button type="button" class="btn btn-ghost" id="btnQuickSort" onclick="BuscarOrdenadoIdadeQuickSort()">
+                    <span class="btn-spinner"></span><span class="btn-text">Idade QuickSort ↑</span>
                 </button>
 
-
-                <button type="button"
-                        class="btn btn-ghost"
-                        onclick="BuscarOrdenadoIdadeQuickSort()">
-                    Idade QuickSort ↑
+                <button type="button" class="btn btn-ghost" id="btnTodos" onclick="carregarTodos()">
+                    <span class="btn-spinner"></span><span class="btn-text">Todos</span>
                 </button>
-
-
-                <button type="button"
-                        class="btn btn-ghost"
-                        onclick="carregarTodos()">
-                    Todos
+                <button type="button" class="btn btn-ghost" id="btnRestaurar" onclick="RestaurarLista()">
+                    <span class="btn-spinner"></span><span class="btn-text">Restaurar Lista</span>
                 </button>
-                <button type="button"
-                        class="btn btn-ghost"
-                        onclick="RestaurarLista()">
-                    Restaurar Lista
-                </button>
-
             </div>
 
             <div class="status" id="status"></div>
 
             <table>
-
                 <thead>
                     <tr>
                         <th style="width:60px">#</th>
@@ -173,14 +102,9 @@
                         <th style="width:90px">Ações</th>
                     </tr>
                 </thead>
-
                 <tbody id="tabela"></tbody>
-
             </table>
-
         </div>
-
     </div>
-
 </body>
 </html>

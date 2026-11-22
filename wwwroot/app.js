@@ -1,7 +1,4 @@
-﻿const API = window.location.hostname === "localhost" ||
-    window.location.hostname === "127.0.0.1"
-    ? "http://localhost:5103/api"
-    : "https://clinica-grupo-9-estrutura-de-dados-ii.onrender.com/api";
+﻿const API =  "https://clinica-grupo-9-estrutura-de-dados-ii.onrender.com/api";
 
 const PRIORIDADE_TEXTO = {
     1: "Normal",

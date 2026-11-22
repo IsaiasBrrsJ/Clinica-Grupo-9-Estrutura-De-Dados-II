@@ -98,7 +98,7 @@ Ao iniciar, a aplicação carrega 10 pacientes (idades de 8 a 79 anos, com as tr
 | Quick Sort por idade | ![Quick Sort](docs/prints/fig05_quicksort.png) |
 | Selection Sort por idade | ![Selection Sort](docs/prints/fig06_selecao_idade.png) |
 | Top 3 prioritários | ![Top 3](docs/prints/fig07_top3.png) |
-| Cadastro e CPF repetido | ![Cadastro](docs/prints/fig08_cadastro.png) |
+| Cadastro | ![Cadastro](docs/prints/fig08_cadastro.png) |
 
 ## Tecnologias
 

@@ -43,7 +43,7 @@ public class Selecao
     /// </summary>
     public List<Paciente> Top3Prioritarios()
     {
-        var lista = _repo.ObterTodos().ToList();
+        var lista = _repo.ObterTodos();
 
         int limite = Math.Min(3, lista.Count);
 

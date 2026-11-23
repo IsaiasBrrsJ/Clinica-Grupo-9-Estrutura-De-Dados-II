@@ -44,7 +44,7 @@ ClinicaMedicaGrupo9/
 
 ## Aplicação online
 
-A aplicação está publicada em: **[Clínica Sapiens — Pacientes](https://clinica-grupo-9-estrutura-de-dados-ii.onrender.com/)**
+A aplicação está publicada no render link de acesso : **[Clínica Sapiens — Pacientes](https://clinica-grupo-9-estrutura-de-dados-ii.onrender.com/)**
 
 > Na hospedagem gratuita, o primeiro acesso pode demorar alguns segundos.
 
